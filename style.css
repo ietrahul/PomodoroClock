@@ -1,0 +1,33 @@
+body {
+  margin-top: 7%;
+  font-family: 'Orbitron', sans-serif;
+  background-color: dimgray;
+}
+
+.tab{
+  text-align: center;
+}
+
+.tab input{
+  background-color: dimgray;
+  border: none;
+  outline: none;
+  font-size: 30px;
+  cursor:pointer;
+}
+
+.circle.btn{
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  border: 7px solid #f1f1f1;
+    background: -webkit-gradient(linear, left top, right top, color-stop(100%,#F00), color-stop(40%,#00F));
+    background: -moz-linear-gradient(left center, #F00 100%, #00F 100%);
+    background: -o-linear-gradient(left, #F00 100%, #00F 100%);
+    background: linear-gradient(to right, #F00 0%, #00F 100%);
+    background: #00F;
+}
+
+#time{
+  margin-top: -80px;
+}
