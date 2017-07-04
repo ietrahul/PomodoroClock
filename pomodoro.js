@@ -6,16 +6,19 @@ if (i== 0){
  min = Number(document.getElementById("Sessiontime").innerHTML);
  sec = 0;
  totalTime = min*60;
+ timeSpent=0;
  myVar = setInterval(myFunction, 1000);
-}
- //call break time
- if (i==1){
+} else if (i==1){
  min = Number(document.getElementById("BreakTime").innerHTML);
  sec = 0;
  totalTime = min*60;
  timeSpent=0;
+ document.getElementById("timeText").innerHTML = "Break Time"
  document.getElementById("time").innerHTML = min;
  myVar = setInterval(myFunction, 1000);
+ } else {
+  document.getElementById("timeText").innerHTML = "Session Time"
+ document.getElementById("time").innerHTML = Number(document.getElementById("Sessiontime").innerHTML);
  }
 }
 
@@ -40,6 +43,12 @@ function myFunction() {
     clearInterval(myVar);
     i +=1;
     if (i==1) trial();
+    if (i==2) {
+      i = 0;
+      document.getElementById("timeText").innerHTML = "Session Time"
+      document.getElementById("time").innerHTML = Number(document.getElementById("Sessiontime").innerHTML);
+      fill(0);
+    }
  console.log(i);
   }
 }
@@ -48,9 +57,13 @@ function add(str){
   clearInterval(myVar);
   var x = document.getElementById(str).innerHTML;
   document.getElementById(str).innerHTML = Number(x) + 1;
-  if (str === "Sessiontime") document.getElementById("time").innerHTML = Number(x) + 1;
+  if (str === "Sessiontime") {
+    document.getElementById("time").innerHTML = Number(x) + 1;
+  } else {
+    document.getElementById("time").innerHTML = document.getElementById("Sessiontime").innerHTML;
+  }
   i = 0;
-  fil(0);
+  fill(0);
 }
 
 function subtract(str){
@@ -58,10 +71,15 @@ function subtract(str){
   var x = document.getElementById(str).innerHTML;
    if (x != "1"){
   document.getElementById(str).innerHTML = Number(x) - 1;
-   if (str === "Sessiontime") document.getElementById("time").innerHTML = Number(x) - 1;
+    if (str === "Sessiontime") {
+      document.getElementById("time").innerHTML = Number(x) - 1;
+    }
+    else{
+      document.getElementById("time").innerHTML = document.getElementById("Sessiontime").innerHTML;
+    }
   }
   i = 0;
-  fil(0);
+  fill(0);
 }
 
 function fill(percentage){
@@ -69,8 +87,8 @@ function fill(percentage){
     col1="#F00",
     col2="#00F";
 var t=document.getElementById('circle');
-t.style.background = "-webkit-gradient(linear, left top,right top, color-stop("+percentage+"%,"+col1+"), color-stop("+percentage+"%,"+col2+"))";
+/*t.style.background = "-webkit-gradient(linear, left top,right top, color-stop("+percentage+"%,"+col1+"), color-stop("+percentage+"%,"+col2+"))";
 t.style.background = "-moz-linear-gradient(left center,"+col1+" "+percentage+"%, "+col2+" "+percentage+"%)";
-t.style.background = "-o-linear-gradient(left,"+col1+" "+percentage+"%, "+col2+" "+percentage+"%)";
-t.style.background = "linear-gradient(to right,"+col1+" "+percentage+"%, "+col2+" "+percentage+"%)";
+t.style.background = "-o-linear-gradient(left,"+col1+" "+percentage+"%, "+col2+" "+percentage+"%)";*/
+t.style.background = "linear-gradient(to top,"+col1+" "+percentage+"%, "+col2+" "+percentage+"%)";
 }
