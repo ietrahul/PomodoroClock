@@ -1,21 +1,26 @@
 body {
-  margin-top: 7%;
+  margin-top: 5%;
   font-family: 'Orbitron', sans-serif;
   background-color: dimgray;
+  color: white;
 }
 
 .tab{
   text-align: center;
+  margin: auto;
+  max-width: 400px;
 }
 
 table {
  text-align: center;
+ height: 320px;
 }
 
 a {
   cursor: pointer;
-  color: black;
   text-decoration: none;
+  color: white;
+  font-size: 25px;
 }
 
 .tab input{
@@ -30,19 +35,21 @@ a {
   height: 300px;
   width: 300px;
   border-radius: 50%;
-  border: 7px solid #f1f1f1;
+  border: 5px solid #7CFC00;
     /*background: -webkit-gradient(linear, left top, right top, color-stop(100%,#F00), color-stop(40%,#00F));
     background: -moz-linear-gradient(left center, #F00 100%, #00F 100%);
     background: -o-linear-gradient(left, #F00 100%, #00F 100%);
-    background: linear-gradient(to right, #F00 0%, #00F 100%);*/
-    background: #00F;
+    background: linear-gradient(to right, #F00 0%, #00F 100%);
+    background: #00F;*/
 }
 
 #timeText{
   margin-top: -120px;
+  font-size: 22px;
 }
 
 #time{
-  margin-top: -80px;
+  margin-top: -125px;
+  font-size: 22px;
 }
 

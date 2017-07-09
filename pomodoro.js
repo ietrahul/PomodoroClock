@@ -1,4 +1,4 @@
-var myVar, min, sec, totalTime, timeSpent=0, i=0;
+var myVar, min, sec, totalTime, timeSpent=0, i=0, myVarPrev;
 
 function trial() {
 //myVar = setTimeout(myFunction, 1000);
@@ -7,6 +7,12 @@ if (i== 0){
  sec = 0;
  totalTime = min*60;
  timeSpent=0;
+  if (myVar > 0) {
+    clearInterval(myVar);
+    document.getElementById("timeText").innerHTML = "Session Time"
+    document.getElementById("time").innerHTML = Number(document.getElementById("Sessiontime").innerHTML);
+    fill(0);
+  }
  myVar = setInterval(myFunction, 1000);
 } else if (i==1){
  min = Number(document.getElementById("BreakTime").innerHTML);
@@ -15,6 +21,16 @@ if (i== 0){
  timeSpent=0;
  document.getElementById("timeText").innerHTML = "Break Time"
  document.getElementById("time").innerHTML = min;
+ fill(0);
+  if (myVar > myVarPrev) {
+    myVar = 0;
+    i = 0;
+    clearInterval(myVar);
+    document.getElementById("timeText").innerHTML = "Session Time"
+    document.getElementById("time").innerHTML = Number(document.getElementById("Sessiontime").innerHTML);
+    fill(0);
+    trial();
+  }
  myVar = setInterval(myFunction, 1000);
  } else {
   document.getElementById("timeText").innerHTML = "Session Time"
@@ -41,6 +57,7 @@ function myFunction() {
   if (percentage%2 == 0)  fill(percentage);
     if (min == 0 && sec == 0){
     clearInterval(myVar);
+    myVarPrev = myVar;
     i +=1;
     if (i==1) trial();
     if (i==2) {
@@ -48,6 +65,7 @@ function myFunction() {
       document.getElementById("timeText").innerHTML = "Session Time"
       document.getElementById("time").innerHTML = Number(document.getElementById("Sessiontime").innerHTML);
       fill(0);
+      trial();
     }
  console.log(i);
   }
@@ -84,8 +102,12 @@ function subtract(str){
 
 function fill(percentage){
   //var percentage=70,
-    col1="#F00",
-    col2="#00F";
+    col1="#7CFC00",
+    col2="dimgray";
+    if (percentage >= 90 ){
+      col1="#F08080"
+    }
+
 var t=document.getElementById('circle');
 /*t.style.background = "-webkit-gradient(linear, left top,right top, color-stop("+percentage+"%,"+col1+"), color-stop("+percentage+"%,"+col2+"))";
 t.style.background = "-moz-linear-gradient(left center,"+col1+" "+percentage+"%, "+col2+" "+percentage+"%)";
